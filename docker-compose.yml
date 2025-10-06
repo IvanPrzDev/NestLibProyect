@@ -8,8 +8,8 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - NODE_ENV=development
-      - MONGODB_URI=mongodb://mongo:27017/nestlibproyect
+      - NODE_ENV=${NODE_ENV}
+      - MONGODB_URI=${MONGODB_URI}
     depends_on:
       - mongo
     volumes:
@@ -21,9 +21,9 @@ services:
     ports:
       - '27017:27017'
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password123
-      - MONGO_INITDB_DATABASE=nestlibproyect
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
     volumes:
       - mongo_data:/data/db
       - ./docker/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
